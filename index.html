@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的个人网站</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 原有头像 -->
+  <img src="my_avatar.png" alt="我的头像" width="150" style="border-radius: 50%; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+
+  <!-- 主标题 -->
+  <h1 style="text-align: center;">我的个人网站</h1>
+
+  <!-- 折叠面板：点击标题展开长篇文字 -->
+  <div class="accordion">
+    <!-- 折叠标题（点击触发） -->
+    <div class="accordion-title" onclick="toggleContent(this)">
+      关于我 ▶️ <!-- 箭头标识折叠状态 -->
+    </div>
+    <!-- 折叠内容（默认隐藏） -->
+    <div class="accordion-content">
+      <div class="long-text">
+        <p>大家好，我是一名刚入门的程序员，目前主要学习前端开发（HTML/CSS/JavaScript），偶尔也会接触Python。</p>
+        <p>我从2024年开始学习编程，最初只是觉得“做一个自己的网站很酷”，慢慢发现编程的乐趣在于把想法变成实际的产品。刚开始学的时候踩了很多坑：比如分不清HTML和CSS的区别，写的代码排版混乱，甚至连GitHub仓库的命名都错了好几次。</p>
+        <p>不过好在坚持了下来，现在已经能独立搭建静态个人网站，也做了几个小项目：比如简易计算器、待办事项清单。接下来的学习计划是：</p>
+        <ul>
+          <li>2025年Q1：掌握JavaScript基础，能写交互效果；</li>
+          <li>2025年Q2：学习Vue框架，做一个完整的前端项目；</li>
+          <li>2025年Q3：接触后端知识，尝试前后端结合。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 可添加多个折叠面板（比如“我的项目”） -->
+    <div class="accordion-title" onclick="toggleContent(this)">
+      我的项目 ▶️
+    </div>
+    <div class="accordion-content">
+      <div class="long-text">
+        <h3>GitHub个人网站</h3>
+        <p>这个网站是我用GitHub Pages搭建的第一个作品，全程没有用任何框架，纯手写HTML和CSS。</p>
+        <img src="images/project_website.png" alt="个人网站截图" class="text-img">
+        <p class="img-desc">图：我的个人网站首页效果</p>
+        <p>搭建过程中遇到的最大问题是“图片不显示”，后来发现是文件名用了中文，改成英文后就解决了。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 原有链接列表 -->
+  <div class="links" style="text-align: center; margin: 30px 0;">
+    <a href="你的GitHub链接" target="_blank">GitHub</a>
+    <a href="你的邮箱" target="_blank">Email</a>
+  </div>
+
+  <!-- 折叠/展开的JavaScript逻辑（复制即可，无需修改） -->
+  <script>
+    // 切换折叠/展开状态的函数
+    function toggleContent(titleElement) {
+      // 获取当前标题对应的内容区域
+      const content = titleElement.nextElementSibling;
+      // 获取标题里的箭头
+      const arrow = titleElement.innerText.includes("▶️") ? "▶️" : "🔽";
+      
+      // 切换内容的显示/隐藏
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        // 改回折叠箭头
+        titleElement.innerText = titleElement.innerText.replace("🔽", "▶️");
+      } else {
+        content.style.display = "block";
+        // 改成展开箭头
+        titleElement.innerText = titleElement.innerText.replace("▶️", "🔽");
+      }
+    }
+  </script>
+</body>
+</html>
